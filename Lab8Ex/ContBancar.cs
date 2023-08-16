@@ -10,12 +10,12 @@ namespace Lab8Ex
     public class ContBancar
     {
         public Guid Id { get; }
-        private decimal Sold { get; set;}
+        public decimal Sold { get; set;}
         
         public ContBancar()
         {
             Id = Guid.NewGuid();
-            this.Sold = 0;
+            Sold = 0;
         }
 
         public void DepuneNumerar(decimal suma)
@@ -26,8 +26,7 @@ namespace Lab8Ex
             } 
             else
             {
-                Sold += suma;
-                Console.WriteLine(Sold);
+                Sold += suma; 
             }
         }
 
@@ -37,16 +36,13 @@ namespace Lab8Ex
             {
                 throw new OpereazaSumaNegativaException();
             }
-
             else if (suma > Sold)
             {
                 throw new FonduriInsuficienteException();
             }
-
             else
             {
                 Sold -= suma;
-                Console.WriteLine(Sold);
             }
         }
     }

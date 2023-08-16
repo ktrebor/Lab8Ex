@@ -4,12 +4,28 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Lab8Ex
 {
-    internal class Program
+    internal partial class Program
     {
         static void Main(string[] args)
         {
-            var card = new ContBancar();
+ 
+            var banca = new Banca();
+            
+            var cardBancar = banca.CreeazaCont();
+            var cardBancar2 = banca.CreeazaCont();
 
+            banca.EmiteCard(cardBancar);
+            banca.AcceptaPlata(100, cardBancar);
+            banca.Plateste(50, cardBancar);
+            
+
+       
+
+            //banca.Plateste(100, cardBancar);
+
+            //banca.AdaugaCont(card);
+
+           /*
             //depunere bani
             try
             {
@@ -33,6 +49,7 @@ namespace Lab8Ex
             {
                 Console.WriteLine(e);
             }
+           */
         }
     }
 }
